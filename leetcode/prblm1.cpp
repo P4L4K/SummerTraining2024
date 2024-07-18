@@ -1,69 +1,46 @@
-//https://leetcode.com/problems/maximum-subarray/
+//https://leetcode.com/problems/two-sum/
 
 #include<iostream>
 #include<vector>
+#include<map>
 using namespace std;
 
-int bruteforce_max_subarray(vector<int>& nums)
-{
-	int max_sum=nums[0];
-	for(int i=0;i<nums.size();i++)
-	{
-		int arr_sum=0;
-		for(int j=i;j<nums.size();j++)
-		{
-			arr_sum+=nums[j];
-			if (max_sum<arr_sum)
-			{
-				max_sum=arr_sum;
+vector<int> hashMap_twoSum(vector<int>& nums, int target) {
+		ios_base::sync_with_stdio(false);
+		cin.tie(NULL);
+		cout.tie(NULL);
+		map<int,int> visited;
+		for(int i=0;i<nums.size();i++){
+		   int diff= target-nums[i];
+		   if(visited.find(diff)==visited.end()){
+				visited[nums[i]]=i;
+		   }
+		   else{
+				return {visited[diff],i};
+		   }
+		}
+		return {0,0};
+}
+
+vector<int> bruteforce_twoSum(vector<int>& nums, int target) {
+	for(int i=0;i<nums.size();i++){
+		for(int j=i+1;j<nums.size();j++){
+			if(nums[i]+nums[j]==target){
+				return {i,j};
 			}
 		}
 	}
-	return max_sum;
+	return {0,0};
 }
-
-int max_subarray(vector<int>& nums)
-{
-	int max_sum=nums[0];
-	int current_arr_sum=0;
-	for(int i: nums)
-	{
-		current_arr_sum += i;
-		max_sum=max(current_arr_sum,max_sum);
-		if (current_arr_sum<0)
-		{
-			current_arr_sum=0;
-		}
-	}
-	return max_sum;
-}
-
-int max_subarray1(vector<int>& nums)
-{
-	int max_sum=nums[0];
-	int current_arr_sum=0;
-	for(int i: nums)
-	{
-		current_arr_sum=max(i,i+current_arr_sum);
-		max_sum=max(max_sum,current_arr_sum);
-	}
-	return max_sum;
-}
-
 
 int main()
 {
-	vector<int> arr={-2,1,-3,4,-1,2,1,-5,4};
-	cout<<max_subarray1(arr)<<endl;
-	cout<<bruteforce_max_subarray(arr)<<endl;
-	cout<<max_subarray(arr)<<endl;
+	vector<int> vec={2,7,11,15};
+	int target =9;
+	
+	vector<int> result;
+	result=bruteforce_twoSum(vec,target);
+	cout<<"bruteforce: "<<result[0]<<" , "<<result[1]<<endl;
+	result=hashMap_twoSum(vec,target);
+	cout<<"HashMap: "<<result[0]<<" , "<<result[1]<<endl;
 }
-
-
-
-
-
-
-
-
-
