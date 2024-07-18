@@ -1,0 +1,1 @@
+	cout<<"If the stack is empty or not: "<<s.empty()<<endl;

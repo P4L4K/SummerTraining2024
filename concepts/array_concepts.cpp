@@ -16,8 +16,6 @@ int main()
 	}
 	cout<<endl;
 	
-	
-
 	cout<<"element at index: "<<a.at(2)<<endl;
 	bool trueFalse=a.empty();
 	cout<<"True or false: "<<trueFalse<<endl;
