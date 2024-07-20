@@ -28,6 +28,7 @@ vector<int> brute_force_productExceptSelf(vector<int> nums) {
 		else
 			product*=i;
 	}
+	
 	if (zero_count>1){
 		vector<int> n(nums.size(),0);
 		return n;

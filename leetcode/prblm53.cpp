@@ -46,6 +46,7 @@ int max_subarray1(vector<int>& nums)
 	{
 		current_arr_sum=max(i,i+current_arr_sum);
 		max_sum=max(max_sum,current_arr_sum);
+	
 	}
 	return max_sum;
 }
@@ -53,10 +54,10 @@ int max_subarray1(vector<int>& nums)
 
 int main()
 {
-	vector<int> arr={-2,1,-3,4,-1,2,1,-5,4};
+	vector<int> arr={0,1,0,1,1,0,1,0,1,1,1,1,0};
 	cout<<max_subarray1(arr)<<endl;
-	cout<<bruteforce_max_subarray(arr)<<endl;
-	cout<<max_subarray(arr)<<endl;
+	//cout<<bruteforce_max_subarray(arr)<<endl;
+	//cout<<max_subarray(arr)<<endl;
 }
 
 
