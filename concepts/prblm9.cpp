@@ -40,46 +40,38 @@ int max_subarrayn(vector<int>& nums,int n)
 	}
 	return max_1_count;
 }
-
-
+int TwoPointer_maxSubarrayN(vector<int>& nums,int n)
+{
+	int max_count=0;
+	int current_count=0;
+	int startp=0,endp=0;
+	while(startp<nums.size() && endp<nums.size())
+	{
+		if(nums[startp]==n)
+		{
+			for(endp=startp+1;endp<nums.size();endp++)
+			{
+				if(nums[endp]!=n)
+					break;
+			}
+			current_count=endp-startp;
+			max_count=max(max_count,current_count);
+			startp=endp;
+		}
+		else
+		{
+			startp++;
+		}
+		
+	}
+	return max_count;
+}
 int main()
 {
 	vector<int> nums={1,1,1,5,5,5,5,5,5,1,0,1,1,5,5,5,0,0,0};
 	cout<<"max consecutive 5s: "<<max_subarrayn(nums,5)<<endl;
+	cout<<"max consecutive 5s: "<<TwoPointer_maxSubarrayN(nums,5)<<endl;
 	//cout<<"max consecutive 0s: "<<max_subarray0(nums)<<endl;
 	//cout<<"max consecutive count: "<<max(max_subarray1(arr),max_subarray0(arr))<<endl;
 	
-	 int count=0,max=0;
-
- int s=0,e=0,n=nums.size();
-
- while(s<n && e<n){
-
-  if(nums[s]==5){
-
-   e=e+1;
-
-   while(e<n && nums[e]==5){
-
-    e++;
-
-   }
-
-  }
-
-  count=e-s;
-
-  if(count>max){
-
-   max=count;
-
-  }
-
-  s=e+1;
-
-  e=e+1;
-
- }
-
-  cout<<max;
 }
