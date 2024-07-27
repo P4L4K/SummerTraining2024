@@ -56,8 +56,8 @@ int main()
 {
 	vector<int> arr={0,1,0,1,1,0,1,0,1,1,1,1,0};
 	cout<<max_subarray1(arr)<<endl;
-	//cout<<bruteforce_max_subarray(arr)<<endl;
-	//cout<<max_subarray(arr)<<endl;
+	cout<<bruteforce_max_subarray(arr)<<endl;
+	cout<<max_subarray(arr)<<endl;
 }
 
 

@@ -4,6 +4,8 @@
         "vector": "cpp",
         "xstring": "cpp",
         "algorithm": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "list": "cpp",
+        "xutility": "cpp"
     }
 }
